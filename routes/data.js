@@ -22,5 +22,18 @@ router.get("/", async (req, res) => {
     res.send(result.data);
 });
 
+router.get("/level", async (req, res) => {
+
+    let result = {
+        data : {
+            timezone : "UTC"
+        }
+    };// = "REs";
+    
+    // console.log(result);
+
+    res.send(result.data);
+});
+
 
 module.exports = router;
