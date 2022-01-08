@@ -13,6 +13,8 @@ const app = express();
 
 /*Middlewares for the applications*/
 app.use(express.json());
+if(app.get('env') == 'development') 
+    app.use(morgan('tiny'));  // To post the http request onto the console
 app.use(cors());
 
 
