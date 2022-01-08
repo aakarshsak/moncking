@@ -20,7 +20,7 @@ app.use('/data', data);
 
 
 /*To run the server on the specified port*/
-const port = process.env.PORT || 4000;  //Defining the port to the application on port 7800 or 3000
-app.listen(port, () => {   //Starting the server
-    console.log(`Listening on port : ${port}`);
+const port = process.env.NODE_ENV === 'production' ? (process.env.PORT || 80) : 4000;
+const server = app.listen(port, function () {
+    console.log('Server listening on port ' + port);
 });
