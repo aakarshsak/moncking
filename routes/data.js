@@ -7,7 +7,6 @@ const router = express.Router();
 router.get("/", async (req, res) => {
 
     let result;// = "REs";
-    const test = 'https://reqres.in/api/users?page=2';
     const binance = "https://api.binance.com/api/v3/exchangeInfo";
     try {
         const response = await axios.get(binance);
@@ -31,6 +30,9 @@ router.get("/level", async (req, res) => {
     };// = "REs";
     
     // console.log(result);
+
+    const port = process.env.NODE_ENV === 'production' ? (process.env.PORT || 80) : 4000;
+    result.data.port = port;
 
     res.send(result.data);
 });
