@@ -8,6 +8,10 @@
 #Keys
 /keys.txt
 
+
+*.pem
+*.ppk
+
 # Prerequisites
 *.d
 
