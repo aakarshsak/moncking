@@ -33,9 +33,6 @@ router.get("/level", async (req, res) => {
     
     // console.log(result);
 
-    
-    
-
     res.send(result.data);
 });
 
