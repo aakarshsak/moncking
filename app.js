@@ -19,18 +19,8 @@ if(app.get('env') == 'development')
 app.use(cors());
 
 
-
-const router = express.Router();
-
-
-router.get("/testing", async (req, res) => { 
-
-    res.send(app.get('env'));
-});
-
 /*Calling the custom made routes*/
 app.use('/data', data);
-app.use(router);
 
 
 /*To run the server on the specified port*/
