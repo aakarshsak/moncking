@@ -16,12 +16,11 @@ app.use(cors());
 
 
 /*Calling the custom made routes*/
-const base = "/api";
-app.use(base + '/data', data);
+app.use('/data', data);
 
 
 /*To run the server on the specified port*/
-const port = process.env.PORT || 8080;  //Defining the port to the application on port 7800 or 3000
+const port = process.env.PORT || 4000;  //Defining the port to the application on port 7800 or 3000
 app.listen(port, () => {   //Starting the server
     console.log(`Listening on port : ${port}`);
 });
