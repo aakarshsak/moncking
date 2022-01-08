@@ -12,7 +12,13 @@ const app = express();
 
 /*Middlewares for the applications*/
 app.use(express.json());
-app.use(cors());
+
+
+var corsOptions = {
+    origin: 'http://ec2-3-145-188-105.us-east-2.compute.amazonaws.com',
+    optionsSuccessStatus: 200 // For legacy browser support
+}
+app.use(cors(corsOptions));
 
 
 /*Calling the custom made routes*/
