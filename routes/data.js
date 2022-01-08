@@ -28,7 +28,7 @@ router.get("/level", async (req, res) => {
         data : {
             timezone : "UTC",
             port : port,
-            nodeEnv : process.env.NODE_ENV
+            nodeEnv : 'process.env.NODE_ENV'
         }
     };// = "REs";
     
