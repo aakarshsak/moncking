@@ -23,16 +23,18 @@ router.get("/", async (req, res) => {
 
 router.get("/level", async (req, res) => {
 
+    const port = process.env.NODE_ENV === 'production' ? (process.env.PORT || 80) : 4000;
     let result = {
         data : {
-            timezone : "UTC"
+            timezone : "UTC",
+            port : port
         }
     };// = "REs";
     
     // console.log(result);
 
-    const port = process.env.NODE_ENV === 'production' ? (process.env.PORT || 80) : 4000;
-    result.data.port = port;
+    
+    
 
     res.send(result.data);
 });
