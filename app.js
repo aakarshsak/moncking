@@ -21,6 +21,7 @@ app.use('/data', data);
 
 /*To run the server on the specified port*/
 const port = process.env.NODE_ENV === 'production' ? (process.env.PORT || 80) : 4000;
+console.log("Port : ", port);
 const server = app.listen(port, function () {
     console.log('Server listening on port ' + port);
 });
