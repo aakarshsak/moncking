@@ -6,7 +6,7 @@
 /package-lock.json
 
 #Keys
-/keys.txt
+keys.txt
 
 
 *.pem
