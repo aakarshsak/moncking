@@ -1,10 +1,13 @@
 const express = require('express');
 const axios = require('axios');
 
+
+const endpoints = require('../Constants/endpoints');
+
 const router = express.Router();
 
 
-router.get("/", async (req, res) => {
+router.get(endpoints.BASE, async (req, res) => {
 
     let result;// = "REs";
     const binance = "https://api.binance.com/api/v3/exchangeInfo";
@@ -21,7 +24,7 @@ router.get("/", async (req, res) => {
     res.send(result.data);
 });
 
-router.get("/level", async (req, res) => {
+router.get(endpoints.DATA_ROUTE.LEVEL, async (req, res) => {
     let result = {
         data : {
             timezone : "UTC",

@@ -47,11 +47,11 @@ This is a money tracking application
 
 
 # Deploy the Angular App (For Windows)
-
-1. Build the Angular app with the command npm run build.
-2. Connect to the server via SSH (instructions above) and create a new folder for the front end app with the command sudo mkdir /opt/front-end
-3 Change the owner of the folder to the ubuntu user and group with the command sudo chown ubuntu:ubuntu /opt/front-end. This is to allow us to transfer the front end files in the next step.
-4. Transfer the compiled app to the server via SSH using the PuTTY Secure Copy client with the command:
+1. Clone the angular project with command git clone https://github.com/aakarshsak/moncking-client.git and install npm packages with command npm install.
+2. Build the Angular app with the command npm run build.
+3. Connect to the server via SSH (instructions above) and create a new folder for the front end app with the command sudo mkdir /opt/front-end
+4 Change the owner of the folder to the ubuntu user and group with the command sudo chown ubuntu:ubuntu /opt/front-end. This is to allow us to transfer the front end files in the next step.
+5. Transfer the compiled app to the server via SSH using the PuTTY Secure Copy client with the command:
 pscp -i D:\Study\projects\moncking\monching-aws-key.ppk -r D:\Study\projects\moncking-client\moncking-client\dist\moncking-client\* ubuntu@ec2-3-145-188-105.us-east-2.compute.amazonaws.com:/opt/front-end
 
 

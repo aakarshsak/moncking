@@ -4,6 +4,9 @@ const express = require("express");  //express backend framework package
 const cors = require("cors"); //cors to do cross origin requests
 const morgan = require("morgan"); //http request logger package for developement
 
+
+const endpoints = require('./Constants/endpoints');
+
 /*Custom made local modules*/
 const data = require('./routes/data');
 
@@ -19,7 +22,7 @@ app.use(cors());
 
 
 /*Calling the custom made routes*/
-app.use('/data', data);
+app.use(endpoints.DATA_ROUTE.DATA, data);
 
 
 /*To run the server on the specified port*/
