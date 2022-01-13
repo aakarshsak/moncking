@@ -37,6 +37,8 @@ This is a money tracking application
 1. Run the scripts from the setup_web_server_scipt.txt for node, mongodb, nginx etc.
 2. For instructions on how to securely connect to the remote MongoDB server from your local machine using Mongo Shell or MongoDB Compass see https://jasonwatmore.com/post/2020/02/05/connect-to-remote-mongodb-on-aws-ec2-simply-and-securely-via-ssh-tunnel.
 
+ssh -i D:\Study\projects\moncking\moncking-aws-key.pem -N -f -L 8000:localhost:27017 ubuntu@ec2-3-145-188-105.us-east-2.compute.amazonaws.com
+
 
 # Deploy Node.js + MongoDB Back-end API
 
@@ -52,7 +54,7 @@ This is a money tracking application
 3. Connect to the server via SSH (instructions above) and create a new folder for the front end app with the command sudo mkdir /opt/front-end
 4 Change the owner of the folder to the ubuntu user and group with the command sudo chown ubuntu:ubuntu /opt/front-end. This is to allow us to transfer the front end files in the next step.
 5. Transfer the compiled app to the server via SSH using the PuTTY Secure Copy client with the command:
-pscp -i D:\Study\projects\moncking\monching-aws-key.ppk -r D:\Study\projects\moncking-client\moncking-client\dist\moncking-client\* ubuntu@ec2-3-145-188-105.us-east-2.compute.amazonaws.com:/opt/front-end
+pscp -i D:\Study\projects\moncking\monching-aws-key.ppk -r D:\Study\projects\moncking-client\dist\moncking-client\* ubuntu@ec2-3-145-188-105.us-east-2.compute.amazonaws.com:/opt/front-end
 
 
 # Configure NGINX to serve the Node.js API and Angular front-end

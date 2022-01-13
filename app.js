@@ -1,13 +1,11 @@
 /*Node package manager modules*/
-
 const express = require("express");  //express backend framework package
 const cors = require("cors"); //cors to do cross origin requests
 const morgan = require("morgan"); //http request logger package for developement
 
 
-const endpoints = require('./Constants/endpoints');
-
 /*Custom made local modules*/
+const endpoints = require('./Constants/endpoints');
 const data = require('./routes/data');
 
 /*Making an instance of the express application*/
