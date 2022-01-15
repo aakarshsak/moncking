@@ -1,8 +1,10 @@
 const ENDPOINTS = {
     BASE : '/',
-    DATA_ROUTE : {
-       DATA : '/data',
-       LEVEL : '/level'
+    TRADE_ROUTE : {
+       TRADE : '/trades',
+       OPEN_TRADES : '/open-trades-list',
+       ENTRY : '/enter-trade',
+       EXIT : "/exit-trade",
     }
     
 }
