@@ -2,6 +2,7 @@ const express = require('express');
 
 const tradeService = require('../Services/tradeService');
 const endpoints = require('../Constants/endpoints');
+const debug = require('debug')('file:tradeController');
 
 const router = express.Router();
 
@@ -27,7 +28,7 @@ const openTrade = async (req, res) => {
 router.post(endpoints.TRADE_ROUTE.ENTRY, openTrade);
 router.put(endpoints.TRADE_ROUTE.EXIT, closeTrade);
 router.get(endpoints.TRADE_ROUTE.OPEN_TRADES, getAllOpenTrades);
-router.get(endpoints.BASE, getBinanceResponse);
+router.get(endpoints.COMMON.BASIC, getBinanceResponse);
 
 
 

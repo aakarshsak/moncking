@@ -1,0 +1,6 @@
+{
+    "name" : "HDFC Bank Account",
+    "type" : "bank",
+    "platform" : "HDFC",
+    "currencyCode" : "INR"
+}

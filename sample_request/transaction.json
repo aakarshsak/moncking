@@ -1,0 +1,10 @@
+{
+    "name" : "Noodles",
+    "type" : "Expense",
+    "value" : 1200.45,
+    "mode" : "PhonePe",
+    "category" : "Food and Drinks",
+    "bank" : "State Bank of India",
+    "recipient" : "Zomato",
+    "sender" : "myself"
+}

@@ -2,6 +2,7 @@
 const axios = require('axios');
 const _ = require('lodash');
 const { validateContent, Trade } = require('../DB/trade');
+const debug = require('debug')('file:tradeService');
 
 
 const getBinanceResponseService = async () => {
@@ -21,7 +22,7 @@ const getBinanceResponseService = async () => {
             }
         });
     } catch (error) {
-        console.log("Status" );
+        debug("Status" );
         res.status(error.response.status).send(error);
     }
     // console.log(result);

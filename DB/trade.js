@@ -1,6 +1,5 @@
 const mongoose = require('mongoose');
 const Joi = require('joi');
-const { number } = require('joi');
 
 const tradeSchema = new mongoose.Schema({
     tokenName : { type : String, required : true },
