@@ -1,8 +1,8 @@
 const express = require('express');
 
 
-const transactionService = require('../Services/transactionService');
-const endpoints = require('../Constants/endpoints');
+const transactionService = require('../../Services/basic-wallet-services/transactionService');
+const endpoints = require('../../Constants/endpoints');
 const debug = require('debug')('file:transactionController');
 
 const router = express.Router();
@@ -11,13 +11,13 @@ const getTransactionHistory = async (req, res) => {
     try {
         res.send(await transactionService.getTransactionsHistoryService());
     } catch(err) {
-        debug(err);
         let error = {
             errorName : err.name,
             status : err.status,
             errorDetails : err.message
         }
-        return res.status(err.status).send(error);
+        debug(error);
+        return res.status(error.status).send(error);
     }
 }
 

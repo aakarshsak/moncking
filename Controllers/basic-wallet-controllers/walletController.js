@@ -1,8 +1,8 @@
 const express = require('express');
 
 
-const walletService = require('../Services/walletService');
-const endpoints = require('../Constants/endpoints');
+const walletService = require('../../Services/basic-wallet-services/walletService');
+const endpoints = require('../../Constants/endpoints');
 const debug = require('debug')('file:walletController');
 
 const router = express.Router();
@@ -37,9 +37,8 @@ const getWallets = async (req, res) => {
 
 
 const getNetWalletAmountForUser = async (req, res) => {
-    let userId = req.params.userId;
     try {
-        res.send(await walletService.netWalletAmountForUserid(userId, 'INR'));
+        res.send(await walletService.netWalletAmountForUserid());
     } catch(err) {
         debug(err);
         let error = {

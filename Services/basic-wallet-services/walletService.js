@@ -1,20 +1,20 @@
-const { Wallet, validateContent } = require('../DB/wallet');
-const { TEST_USER_ID, TEST_USER_NAME, NAME, PLATFORM, TYPE, CURRENCY_CODE } = require('../Constants/commonConstants');
+const { Wallet, validateContent } = require('../../DB/basic-wallet/wallet');
+const { TEST_USER_ID, TEST_USER_NAME, NAME, PLATFORM, TYPE, CURRENCY_CODE } = require('../../Constants/commonConstants');
 const _ = require('lodash');
 const debug = require('debug')('file:walletService');
-const EmptyError = require('../Errors/emptyError');
-const ValidationError = require('../Errors/validationError');
-const InvalidRequestError = require('../Errors/invalidRequestError');
-const InvalidAmountError = require('../Errors/invalidAmountError');
-const Helper = require('../Utilities/helper');
-const { SUCCESS_BUT_NO_CONTENT, INVALID_REQ } = require('../Constants/httpErrorStatusCodes');
+const EmptyError = require('../../Errors/emptyError');
+const ValidationError = require('../../Errors/validationError');
+const InvalidRequestError = require('../../Errors/invalidRequestError');
+const InvalidAmountError = require('../../Errors/invalidAmountError');
+const Helper = require('../../Utilities/helper');
+const { NOT_FOUND, INVALID_REQ } = require('../../Constants/httpErrorStatusCodes');
 const currencyService = require('./currencyService');
 
 const getAllWalletsService = async () => {
     let allWallets = await Wallet.find({});
     if(Helper.isNullOrEmpty(allWallets)) {
         debug('details');
-        throw new EmptyError('wallet', SUCCESS_BUT_NO_CONTENT);
+        throw new EmptyError('wallet', NOT_FOUND);
     }
     return allWallets;
 }
@@ -66,7 +66,7 @@ const debitWalletAmount = async (transaction) => {
             throw new InvalidAmountError(amount, INVALID_REQ);
         }
     } else {
-        throw new EmptyError('such wallet', SUCCESS_BUT_NO_CONTENT);
+        throw new EmptyError('such wallet', NOT_FOUND);
     }
 }
 
@@ -78,7 +78,7 @@ const creditWalletAmount = async (transaction) => {
         wallet.balance+=amount;
         await Wallet.updateOne({_id: wallet._id}, { $set : {balance: wallet.balance}});
     } else {
-        throw new EmptyError('such wallet', SUCCESS_BUT_NO_CONTENT);
+        throw new EmptyError('such wallet', NOT_FOUND);
     }
 }
 
@@ -101,15 +101,17 @@ const transferWalletAmount = async (transaction) => {
         await Wallet.updateOne({_id: walletRecipient._id}, { $set : {balance: walletRecipient.balance}});
 
     } else {
-        throw new EmptyError('such wallet', SUCCESS_BUT_NO_CONTENT);
+        throw new EmptyError('such wallet', NOT_FOUND);
     }
 }
 
 
-const netWalletAmountForUserid = async (userId, currency) => {
+const netWalletAmountForUserid = async () => {
+    userId = TEST_USER_ID;
+    currency = 'INR';
     let listOfWallets = await Wallet.find({userId});
     if(listOfWallets.length === 0){
-        throw new EmptyError('wallet', SUCCESS_BUT_NO_CONTENT);
+        throw new EmptyError('wallet', NOT_FOUND);
     }
 
     let netAmount = 0;

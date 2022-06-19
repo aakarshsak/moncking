@@ -20,8 +20,17 @@ const CommonConstants = {
     BALANCE : 'balance',
     TRANSFER : 'transfer',
     EXPENSE : 'expense',
-    INCOME : 'income'
+    INCOME : 'income',
+    QUANTITY : 'quantity',
+    FEE : 'fee',
+    AVG_ENTRY_PRICE : 'avgEntryPrice',
+    BASE_TOKEN : 'baseToken',
+    MAIN_TOKEN : 'mainToken',
+    BUY : "buy",
+    SELL : "sell",
+    USER_ID : 'userId',
+    TOKEN : 'token',
+    CODE : 'code'
 }
-
 
 module.exports = CommonConstants;

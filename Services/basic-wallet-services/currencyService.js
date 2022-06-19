@@ -1,18 +1,18 @@
-const { Currency, validateContent } = require('../DB/currency');
-const { CURRENCY_NAME, COUNTRY, CURRENCY_CODE, BA } = require('../Constants/commonConstants');
+const { Currency, validateContent } = require('../../DB/basic-wallet/currency');
+const { CURRENCY_NAME, COUNTRY, CURRENCY_CODE, BA } = require('../../Constants/commonConstants');
 const _ = require('lodash');
 const debug = require('debug')('file:currencyService');
-const EmptyError = require('../Errors/emptyError');
-const ValidationError = require('../Errors/validationError');
-const Helper = require('../Utilities/helper');
-const { SUCCESS_BUT_NO_CONTENT, INVALID_REQ } = require('../Constants/httpErrorStatusCodes');
+const EmptyError = require('../../Errors/emptyError');
+const ValidationError = require('../../Errors/validationError');
+const Helper = require('../../Utilities/helper');
+const { NOT_FOUND, INVALID_REQ } = require('../../Constants/httpErrorStatusCodes');
 const CC = require('currency-converter-lt');
 
 const getAllCurrenciesService = async () => {
     let allCurrencies = await Currency.find({});
     if(Helper.isNullOrEmpty(allCurrencies)) {
         debug('details');
-        throw new EmptyError('currency', SUCCESS_BUT_NO_CONTENT);
+        throw new EmptyError('currency', NOT_FOUND);
     }
     return allCurrencies;
 }

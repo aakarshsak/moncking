@@ -4,13 +4,11 @@ const ENDPOINTS = {
         ADMIN : "/admin"
     },
     TRADE_ROUTE : {
-       BASIC: '/trades',
-       OPEN_TRADES : '/open-trades-list',
-       ENTRY : '/enter-trade',
-       EXIT : "/exit-trade",
+       BASIC: '/trades',    //  GET     /trades                 
+       ADD_TRADE : '/add-trade',    //     POST      /trades/add-trade    
     },
     TRANSACTION_ROUTE : {
-        BASIC: '/transactions',
+        BASIC: '/transactions',     //   GET      /transactions
         EXPENSE: '/expense',
         INCOME: '/income',
         TRANSFER: '/transfer'
@@ -27,7 +25,14 @@ const ENDPOINTS = {
     WALLET_ROUTE : {
         BASIC: '/wallets',
         ADD_WALLET: '/add-wallet',
-        WALLETS_AMT_BY_ID: '/:userId/net'
+        WALLETS_AMT_BY_ID: '/net',   // GET       /wallets/net
+    },
+    CRYPTO_WALLET_ROUTE : {
+        BASIC: '/crypto-wallets',
+    },
+    CRYPTO_PLATFORM_ROUTE : {
+        BASIC: '/admin/crypto-platforms',
+        ADD_PLATFORM: '/add-platform',
     }
     
 }

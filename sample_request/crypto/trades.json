@@ -1,0 +1,15 @@
+{
+    "addTrade" : {
+        "mainToken" : "ETH",
+        "baseToken" : "USDT",
+        "avgEntryPrice" : "1034",
+        "fee" : 2,
+        "type" : "BUY",
+        "quantity" : 0.1
+    }
+
+
+
+
+    
+}

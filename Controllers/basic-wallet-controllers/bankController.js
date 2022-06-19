@@ -1,15 +1,15 @@
 const express = require('express');
 
 
-const currencyService = require('../Services/currencyService');
-const endpoints = require('../Constants/endpoints');
-const debug = require('debug')('file:currencyController');
+const bankService = require('../../Services/basic-wallet-services/bankService');
+const endpoints = require('../../Constants/endpoints');
+const debug = require('debug')('file:bankController');
 
 const router = express.Router();
 
-const addCurrency = async (req, res) => {
+const addBank = async (req, res) => {
     try {
-        res.send(await currencyService.addCurrencyService(req));
+        res.send(await bankService.addBankService(req));
     } catch(err) {
         debug(err);
         let error = {
@@ -21,9 +21,9 @@ const addCurrency = async (req, res) => {
     }
 }
 
-const getCurrency = async (req, res) => {
+const getBanks = async (req, res) => {
     try {
-        res.send(await currencyService.getAllCurrenciesService());
+        res.send(await bankService.getAllBanksService());
     } catch(err) {
         debug(err);
         let error = {
@@ -36,7 +36,7 @@ const getCurrency = async (req, res) => {
 }
 
 
-router.post(endpoints.CURRENCY_ROUTE.ADD_CURRENCY, addCurrency);
-router.get(endpoints.COMMON.BASIC, getCurrency);
+router.post(endpoints.BANK_ROUTE.ADD_BANK, addBank);
+router.get(endpoints.COMMON.BASIC, getBanks);
 
 module.exports = router;

@@ -4,7 +4,8 @@ const statusCodes = {
     BAD_GATEWAY : 500,
     INVALID_REQ : 400,
     NOT_FOUND : 404,
-    UNAUTHORIZED : 401
+    UNAUTHORIZED : 401,
+    UNPROCESSABLE : 422
 }
 
 

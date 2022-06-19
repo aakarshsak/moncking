@@ -1,17 +1,17 @@
-const { Bank, validateContent } = require('../DB/bank');
-const { BANK_NAME, COUNTRY, BANK_CODE_NAME } = require('../Constants/commonConstants');
+const { Bank, validateContent } = require('../../DB/basic-wallet/bank');
+const { BANK_NAME, COUNTRY, BANK_CODE_NAME } = require('../../Constants/commonConstants');
 const _ = require('lodash');
 const debug = require('debug')('file:bankService');
-const EmptyError = require('../Errors/emptyError');
-const ValidationError = require('../Errors/validationError');
-const Helper = require('../Utilities/helper');
-const { SUCCESS_BUT_NO_CONTENT, INVALID_REQ } = require('../Constants/httpErrorStatusCodes');
+const EmptyError = require('../../Errors/emptyError');
+const ValidationError = require('../../Errors/validationError');
+const Helper = require('../../Utilities/helper');
+const { INVALID_REQ, NOT_FOUND } = require('../../Constants/httpErrorStatusCodes');
 
 const getAllBanksService = async () => {
     let allBanks = await Bank.find({});
     if(Helper.isNullOrEmpty(allBanks)) {
         debug('details');
-        throw new EmptyError('bank', SUCCESS_BUT_NO_CONTENT);
+        throw new EmptyError('bank', NOT_FOUND);
     }
     return allBanks;
 }
